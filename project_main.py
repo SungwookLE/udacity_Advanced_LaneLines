@@ -254,15 +254,16 @@ def process_img(image):
 
     return fin
 
-
 from moviepy.editor import VideoFileClip
 from IPython.display import HTML
 
-process_img.running_flag = 0
+videos = glob.glob('*.mp4')
+for ea in videos:
 
-src_string = 'project_video.mp4'
-src_video= VideoFileClip(src_string)
-out_video = 'results_video/test_'+src_string  
+    process_img.running_flag = 0
+    src_string = ea;
+    src_video= VideoFileClip(src_string)
+    out_video = 'results_video/Out_'+src_string  
 
-img_clip = src_video.fl_image(process_img)
-img_clip.write_videofile(out_video, audio=False)
+    img_clip = src_video.fl_image(process_img)
+    img_clip.write_videofile(out_video, audio=False)
