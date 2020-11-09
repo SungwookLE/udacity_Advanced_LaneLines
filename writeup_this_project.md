@@ -149,13 +149,30 @@ that function is finding the satisfying in prior ROI(Region of Interest, in 2nd 
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I write the code in the seventh cell of the IPython notebook in "./advanced_lanelies.ipynb".
+the function is `measure_curvature()`. Inputs are left_fitx(pts), right_fitx(pts), ploty(pts), ratio = (xm_per_pix, ym_per_pix).
+Outputs are left_curverad(m), right_curverad(m), mean_curverad(m), left_of_center(m)
+
+Using the method of 'Calculation of R Curve'
+'R curve = (1+(2Ay+B)**2)**(3/2)/abs(2*A)'
+
+​the position of the vehicle with respect to center(from left) is calculated as follow: (center_pix - left_x_pix) * xm_per_pix
+
+you can check the results on output video as text on top.
+
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I write the code in the eighth cell of the IPython notebook in "./advanced_lanelines.ipynb".
+First, left_fit points and right_fit points are gathered to stack array as 'pts'
+Second, using `cv2.fillPoly(color_warp, np.int_([pts]), (0,255, 0))`, fiiling the green color in area
+Third, using `cv2.getPerspectiveTransform(), cv2.warpPerspective()` the inverse warp is implemented
 
-![alt text][image6]
+
+![alt text][image3]
+(Input Image)
+![alt text][image8]
+(Output Image)
 
 ---
 
@@ -163,12 +180,16 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+You can check the code pipeline in "./project_main.py".
+And the Final video results are as follow
 
+Here's a [link to my video result](./output_videos/OUT_project_video.mp4)
+(Output Video) Final Results
 ---
 
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+the rectangle ROI region is so sensitive. I think there are needed some alternative tuning parameter according to vertical movement and the speed of the vehicle and the radius of curvature
+
