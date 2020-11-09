@@ -27,7 +27,7 @@ The goals / steps of this project are the following:
 [image8]: ./output_images/inverse_warp/inversewarp1.jpg "(Output Image) Visualized Inverse Warp with Curvature"
 
 [video1]: ./project_video.mp4 "(Input Video) Video"
-[video2]: ./output_videos/OUT_project_video.mp4 "(Output Video) Final Results"
+[video2]: ./output_videos/out_project_video.mp4 "(Output Video) Final Results"
 
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
